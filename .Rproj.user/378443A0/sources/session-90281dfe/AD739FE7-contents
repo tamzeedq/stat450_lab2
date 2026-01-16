@@ -1,0 +1,26 @@
+---
+title: "Summary plot"
+format: revealjs
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(readr)
+library(here)
+library(ggplot2)
+theme_set(theme_light())
+        
+        
+# MODIFY THE CODE BELOW
+dat <- read_rds(here("data", "processed_data.rds"))
+```
+
+```{r}
+# DON'T CHANGE ANYTHING BELOW
+plt <- dat %>% 
+  ggplot() +
+  geom_point(aes(x = temperature_celsius, y = target_measure_mm))
+plt
+ggsave(here::here("report/fig.jpg"), plt)
+```
